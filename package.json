@@ -1,6 +1,6 @@
 {
   "name": "discord-cleanup",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "A Discord bot for cleaning up spam messages in channels",
   "main": "discord-message-cleaner.js",
   "scripts": {

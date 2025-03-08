@@ -22,6 +22,8 @@
  * 2. Deleting all messages up to a specific "good" message
  * 
  * Supports both traditional prefix commands (!) and modern slash commands (/)
+ * 
+ * Version: 0.1.0
  */
 
 const { Client, GatewayIntentBits, Partials, PermissionsBitField, REST, Routes, SlashCommandBuilder } = require('discord.js');
@@ -83,7 +85,10 @@ const commands = [
     ),
   new SlashCommandBuilder()
     .setName('help')
-    .setDescription('Get information about the bot commands')
+    .setDescription('Get information about the bot commands'),
+  new SlashCommandBuilder()
+    .setName('version')
+    .setDescription('Show the bot version information')
 ];
 
 // Register slash commands when the bot starts
@@ -307,8 +312,27 @@ client.on('interactionCreate', async interaction => {
 - \`/clean [amount]\` or \`!clean [amount]\` - Deletes the specified number of recent messages (max 100)
 - \`/cleanuntil [messageID]\` or \`!cleanuntil [messageID]\` - Deletes all messages up to (but not including) the specified message ID
 - \`/help\` or \`!help\` - Shows this help message
+- \`/version\` - Shows version information
 
 Both slash commands (/) and prefix commands (!) are available for your convenience.
+      `,
+      flags: [1 << 6]
+    });
+  }
+  
+  // Command: Version
+  else if (commandName === 'version') {
+    const packageInfo = JSON.parse(fs.readFileSync(path.join(__dirname, 'package.json'), 'utf8'));
+    
+    interaction.reply({
+      content: `
+**Discord Cleanup Bot v0.1.0**
+
+- Node.js: ${process.version}
+- Discord.js: v${packageInfo.dependencies['discord.js'].replace('^', '')}
+- Repository: ${packageInfo.repository.url.replace('git+', '').replace('.git', '')}
+
+Report issues: ${packageInfo.repository.url.replace('git+', '').replace('.git', '')}/issues
       `,
       flags: [1 << 6]
     });
@@ -403,6 +427,22 @@ client.on('messageCreate', async (message) => {
 - \`${config.prefix}clean [number]\` or \`/clean [amount]\` - Deletes the specified number of recent messages (max 100)
 - \`${config.prefix}cleanuntil [messageID]\` or \`/cleanuntil [messageID]\` - Deletes all messages up to (but not including) the specified message ID
 - \`${config.prefix}help\` or \`/help\` - Shows this help message
+- \`${config.prefix}version\` or \`/version\` - Shows version information
+    `);
+  }
+  
+  // Command: Version
+  else if (command === 'version') {
+    const packageInfo = JSON.parse(fs.readFileSync(path.join(__dirname, 'package.json'), 'utf8'));
+    
+    message.channel.send(`
+**Discord Cleanup Bot v0.1.0**
+
+- Node.js: ${process.version}
+- Discord.js: v${packageInfo.dependencies['discord.js'].replace('^', '')}
+- Repository: ${packageInfo.repository.url.replace('git+', '').replace('.git', '')}
+
+Report issues: ${packageInfo.repository.url.replace('git+', '').replace('.git', '')}/issues
     `);
   }
 });
