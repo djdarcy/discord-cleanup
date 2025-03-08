@@ -1,0 +1,5 @@
+{
+  "prefix": "!",
+  "authorizedUsers": ["YOUR_USER_ID_HERE"],
+  "deleteConfirmationTimeout": 5000
+}

@@ -1,0 +1,31 @@
+{
+  "name": "discord-cleanup",
+  "version": "1.0.0",
+  "description": "A Discord bot for cleaning up spam messages in channels",
+  "main": "discord-message-cleaner.js",
+  "scripts": {
+    "start": "node discord-message-cleaner.js",
+    "setup": "node setup.js"
+  },
+  "author": "Dustin Darcy <ScarcityHypothesis.org>",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "discord.js": "^14.14.1",
+    "dotenv": "^16.3.1"
+  },
+  "engines": {
+    "node": ">=16.9.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/djdarcy/discord-cleanup.git"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "cleanup",
+    "moderation",
+    "spam",
+    "message-management"
+  ]
+}
