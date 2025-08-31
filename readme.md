@@ -1,6 +1,6 @@
 # Discord Cleanup
 
-**Discord Cleanup** is a versatile bot designed to help manage message spam in Discord channels. It provides simple commands to delete multiple messages at once, making it easy to keep your channels organized and clutter-free.
+**Discord Cleanup** is a purpose-specific bot designed to help manage message spam in Discord channels. It provides simple commands to delete multiple messages at once, making it easy to keep your channels organized and clutter-free.
 
 ## Features
 
@@ -13,7 +13,7 @@
 
 ## Why Use Discord Cleanup?
 
-Discord's built-in message management can be tedious when dealing with large amounts of spam. This bot allows you to quickly clean up messages without having to delete them one by one, and can even work with messages older than Discord's 14-day bulk deletion limit.
+Discord's built-in message management can be tedious when dealing with large amounts of spam. This bot allows you to quickly clean up messages without having to delete them one by one, and also even works with messages older than Discord's 14-day bulk deletion limit (albeit slightly slower).
 
 ## Installation
 
